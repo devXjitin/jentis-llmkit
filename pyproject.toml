@@ -1,0 +1,96 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jentis"
+version = "1.0.1"
+authors = [
+  { name="J.E.N.T.I.S Team" },
+]
+description = "A unified Python interface for multiple Large Language Model (LLM) providers including Google Gemini, Anthropic Claude, OpenAI GPT, xAI Grok, Azure OpenAI, and Ollama"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = [
+    "llm",
+    "ai",
+    "openai",
+    "anthropic",
+    "google",
+    "gemini",
+    "claude",
+    "grok",
+    "ollama",
+    "azure",
+    "vertex-ai",
+    "chatgpt",
+    "gpt-4",
+    "machine-learning",
+    "nlp",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+# No required dependencies - all providers are optional
+dependencies = []
+
+[project.optional-dependencies]
+# Individual provider dependencies
+google = ["google-generativeai>=0.3.0"]
+anthropic = ["anthropic>=0.18.0"]
+openai = ["openai>=1.0.0"]
+ollama = ["ollama>=0.1.0"]
+
+# Convenience groups
+all = [
+    "google-generativeai>=0.3.0",
+    "anthropic>=0.18.0",
+    "openai>=1.0.0",
+    "ollama>=0.1.0",
+]
+
+# Common combinations
+cloud = [
+    "google-generativeai>=0.3.0",
+    "anthropic>=0.18.0",
+    "openai>=1.0.0",
+]
+
+dev = [
+    "pytest>=7.0",
+    "black>=22.0",
+    "mypy>=0.990",
+    "ruff>=0.0.270",
+]
+
+[project.urls]
+Homepage = "https://github.com/devXjitin/jentis-llmkit"
+Documentation = "https://github.com/devXjitin/jentis-llmkit"
+Repository = "https://github.com/devXjitin/jentis-llmkit"
+"Bug Tracker" = "https://github.com/devXjitin/jentis-llmkit/issues"
+Discussions = "https://github.com/devXjitin/jentis-llmkit/discussions"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["jentis*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "README.md"]

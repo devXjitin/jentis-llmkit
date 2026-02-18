@@ -5,21 +5,21 @@ A unified interface for multiple LLM providers including Google Gemini,
 Anthropic Claude, OpenAI GPT, Grok, Azure OpenAI, and Ollama.
 
 Author: Jentis Developer
-Version: 1.0.0
+Version: 1.0.1
 """
 
 from typing import Optional, Any
 
 # ── Direct class imports for convenience ────────────────────────────────
-# Allows: from Jentis.llmkit import OpenAILLM, VertexAILLM, etc.
-from Jentis.llmkit.Google.base import GoogleLLM
-from Jentis.llmkit.Anthropic.base import AnthropicLLM
-from Jentis.llmkit.Openai.base import OpenAILLM
-from Jentis.llmkit.Grok.base import GrokLLM
-from Jentis.llmkit.Microsoft.base import AzureLLM
-from Jentis.llmkit.Ollamacloud.base import OllamaCloudLLM
-from Jentis.llmkit.Ollamalocal.base import OllamaLocalLLM
-from Jentis.llmkit.Vertexai.base import VertexAILLM
+# Allows: from jentis.llmkit import OpenAILLM, VertexAILLM, etc.
+from jentis.llmkit.Google.base import GoogleLLM
+from jentis.llmkit.Anthropic.base import AnthropicLLM
+from jentis.llmkit.Openai.base import OpenAILLM
+from jentis.llmkit.Grok.base import GrokLLM
+from jentis.llmkit.Microsoft.base import AzureLLM
+from jentis.llmkit.Ollamacloud.base import OllamaCloudLLM
+from jentis.llmkit.Ollamalocal.base import OllamaLocalLLM
+from jentis.llmkit.Vertexai.base import VertexAILLM
 
 
 def init_llm(
@@ -73,7 +73,7 @@ def init_llm(
         ValueError: If provider is not supported or required parameters are missing.
     
     Example:
-        >>> from Jentis.llmkit import init_llm
+        >>> from jentis.llmkit import init_llm
         >>> 
         >>> # OpenAI GPT-4
         >>> llm = init_llm(provider="openai", model="gpt-4o", api_key="your-key")
@@ -100,7 +100,7 @@ def init_llm(
     
     # Google Gemini
     if provider_lower in ["google", "gemini"]:
-        from Jentis.llmkit.Google.base import GoogleLLM
+        from jentis.llmkit.Google.base import GoogleLLM
         return GoogleLLM(
             model=model,
             api_key=api_key,
@@ -112,7 +112,7 @@ def init_llm(
     
     # Anthropic Claude
     elif provider_lower in ["anthropic", "claude"]:
-        from Jentis.llmkit.Anthropic.base import AnthropicLLM
+        from jentis.llmkit.Anthropic.base import AnthropicLLM
         
         # Anthropic requires max_tokens
         max_tokens = kwargs.get("max_tokens", 1024)
@@ -130,7 +130,7 @@ def init_llm(
     
     # OpenAI GPT
     elif provider_lower in ["openai", "gpt"]:
-        from Jentis.llmkit.Openai.base import OpenAILLM
+        from jentis.llmkit.Openai.base import OpenAILLM
         return OpenAILLM(
             model=model,
             api_key=api_key,
@@ -146,7 +146,7 @@ def init_llm(
     
     # xAI Grok
     elif provider_lower in ["grok", "xai"]:
-        from Jentis.llmkit.Grok.base import GrokLLM
+        from jentis.llmkit.Grok.base import GrokLLM
         return GrokLLM(
             model=model,
             api_key=api_key,
@@ -160,7 +160,7 @@ def init_llm(
     
     # Azure OpenAI
     elif provider_lower in ["azure", "microsoft"]:
-        from Jentis.llmkit.Microsoft.base import AzureLLM
+        from jentis.llmkit.Microsoft.base import AzureLLM
         
         # Azure requires specific parameters
         azure_endpoint = kwargs.get("azure_endpoint")
@@ -184,7 +184,7 @@ def init_llm(
     
     # Ollama Cloud
     elif provider_lower == "ollama-cloud":
-        from Jentis.llmkit.Ollamacloud.base import OllamaCloudLLM
+        from jentis.llmkit.Ollamacloud.base import OllamaCloudLLM
         return OllamaCloudLLM(
             model=model,
             api_key=api_key,
@@ -199,7 +199,7 @@ def init_llm(
     
     # Ollama Local
     elif provider_lower in ["ollama-local", "ollama"]:
-        from Jentis.llmkit.Ollamalocal.base import OllamaLocalLLM
+        from jentis.llmkit.Ollamalocal.base import OllamaLocalLLM
         return OllamaLocalLLM(
             model=model,
             host=kwargs.get("host", kwargs.get("base_url", "http://localhost:11434")),
@@ -213,7 +213,7 @@ def init_llm(
     
     # Google Vertex AI (Model Garden - third-party & first-party models)
     elif provider_lower in ["vertexai", "vertex-ai", "vertex"]:
-        from Jentis.llmkit.Vertexai.base import VertexAILLM
+        from jentis.llmkit.Vertexai.base import VertexAILLM
         return VertexAILLM(
             model=model,
             project_id=kwargs.get("project_id"),

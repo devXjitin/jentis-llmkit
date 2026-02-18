@@ -28,7 +28,7 @@ A unified Python interface for multiple Large Language Model (LLM) providers. Ac
 
 ```bash
 # Install the base package
-pip install Jentis
+pip install jentis
 
 # Install provider-specific dependencies
 pip install google-generativeai  # For Google Gemini
@@ -43,7 +43,7 @@ pip install ollama               # For Ollama (Cloud & Local)
 ### Basic Usage
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Initialize OpenAI GPT-4 (requires OpenAI API key)
 llm = init_llm(
@@ -60,7 +60,7 @@ print(response)
 ### Streaming Responses
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Each provider requires its own API key
 llm = init_llm(
@@ -79,7 +79,7 @@ for chunk in llm.generate_response_stream("Write a short story about AI"):
 ### Google Gemini
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Requires Google AI Studio API key
 llm = init_llm(
@@ -97,7 +97,7 @@ print(response)
 ### Anthropic Claude
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Requires Anthropic API key
 llm = init_llm(
@@ -115,7 +115,7 @@ print(response)
 ### OpenAI GPT
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Requires OpenAI API key
 llm = init_llm(
@@ -135,7 +135,7 @@ print(response)
 ### xAI Grok
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Requires xAI API key
 llm = init_llm(
@@ -152,7 +152,7 @@ print(response)
 ### Azure OpenAI
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Requires Azure OpenAI API key and endpoint
 llm = init_llm(
@@ -172,7 +172,7 @@ print(response)
 ### Ollama Local
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # No API key needed for local Ollama
 llm = init_llm(
@@ -188,7 +188,7 @@ print(response)
 ### Ollama Cloud
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Requires Ollama Cloud API key
 llm = init_llm(
@@ -205,7 +205,7 @@ print(response)
 ### Vertex AI (Model Garden)
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 # Uses gcloud CLI for authentication (no API key needed)
 llm = init_llm(
@@ -228,7 +228,7 @@ print(response)
 If you need detailed metadata (token usage, model info), import the provider-specific functions:
 
 ```python
-from Jentis.llmkit.Openai import openai_llm
+from jentis.llmkit.Openai import openai_llm
 
 result = openai_llm(
     prompt="What is AI?",
@@ -248,38 +248,38 @@ print(f"Total tokens: {result['usage']['total_tokens']}")
 
 ```python
 # Google Gemini
-from Jentis.llmkit.Google import google_llm
+from jentis.llmkit.Google import google_llm
 result = google_llm(prompt="...", model="gemini-2.0-flash-exp", api_key="...")
 
 # Anthropic Claude
-from Jentis.llmkit.Anthropic import anthropic_llm
+from jentis.llmkit.Anthropic import anthropic_llm
 result = anthropic_llm(prompt="...", model="claude-3-5-sonnet-20241022", api_key="...", max_tokens=1024)
 
 # Grok
-from Jentis.llmkit.Grok import grok_llm
+from jentis.llmkit.Grok import grok_llm
 result = grok_llm(prompt="...", model="grok-2-latest", api_key="...")
 
 # Azure OpenAI
-from Jentis.llmkit.Microsoft import azure_llm
+from jentis.llmkit.Microsoft import azure_llm
 result = azure_llm(prompt="...", deployment_name="gpt-4o", azure_endpoint="...", api_key="...")
 
 # Ollama Cloud
-from Jentis.llmkit.Ollamacloud import ollama_cloud_llm
+from jentis.llmkit.Ollamacloud import ollama_cloud_llm
 result = ollama_cloud_llm(prompt="...", model="llama2", api_key="...")
 
 # Ollama Local
-from Jentis.llmkit.Ollamalocal import ollama_local_llm
+from jentis.llmkit.Ollamalocal import ollama_local_llm
 result = ollama_local_llm(prompt="...", model="llama2")
 
 # Vertex AI
-from Jentis.llmkit.Vertexai import vertexai_llm
+from jentis.llmkit.Vertexai import vertexai_llm
 result = vertexai_llm(prompt="...", model="google/gemini-2.0-flash", project_id="my-project")
 ```
 
 **Streaming with Functions:**
 
 ```python
-from Jentis.llmkit.Openai import openai_llm_stream
+from jentis.llmkit.Openai import openai_llm_stream
 
 for chunk in openai_llm_stream(
     prompt="Write a story",
@@ -292,7 +292,7 @@ for chunk in openai_llm_stream(
 ### Custom Configuration
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 llm = init_llm(
     provider="openai",
@@ -413,7 +413,7 @@ for chunk in llm.generate_response_stream("Your prompt here"):
 ## Error Handling
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 try:
     llm = init_llm(
@@ -431,7 +431,7 @@ except Exception as e:
 Each provider has its own exception hierarchy for detailed error handling. Import from provider modules:
 
 ```python
-from Jentis.llmkit.Openai import (
+from jentis.llmkit.Openai import (
     OpenAILLMError,
     OpenAILLMAPIError,
     OpenAILLMImportError,
@@ -439,7 +439,7 @@ from Jentis.llmkit.Openai import (
 )
 
 try:
-    from Jentis.llmkit.Openai import openai_llm
+    from jentis.llmkit.Openai import openai_llm
     result = openai_llm(prompt="Test", model="gpt-4o", api_key="invalid")
 except OpenAILLMAPIError as e:
     print(f"API Error: {e}")
@@ -450,7 +450,7 @@ except OpenAILLMError as e:
 ## Complete Example
 
 ```python
-from Jentis.llmkit import init_llm
+from jentis.llmkit import init_llm
 
 def chat_with_llm(provider_name: str, user_message: str):
     """Simple chat function supporting multiple providers."""
@@ -497,9 +497,9 @@ This project is licensed under the terms of the [LICENSE](../../LICENSE) file.
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/jentisgit/J.E.N.T.I.S/issues)
-- **Documentation**: [Project Docs](https://github.com/jentisgit/J.E.N.T.I.S)
-- **Community**: [Discussions](https://github.com/jentisgit/J.E.N.T.I.S/discussions)
+- **Issues**: [GitHub Issues](https://github.com/devXjitin/jentis-llmkit/issues)
+- **Documentation**: [Project Docs](https://github.com/devXjitin/jentis-llmkit)
+- **Community**: [Discussions](https://github.com/devXjitin/jentis-llmkit/discussions)
 
 ## Author
 

@@ -13,7 +13,7 @@ xAI's Grok is a state-of-the-art AI model trained on real-time data from the X p
 ## Installation
 
 ```bash
-pip install jentis-llmkit openai
+pip install jentis openai
 ```
 
 ## Configuration
@@ -251,9 +251,9 @@ This project is licensed under the MIT License - see the [LICENSE](../../../LICE
 
 For issues, questions, or contributions:
 
-- **Issues**: [GitHub Issues](https://github.com/jentis/jentis/issues)
-- **Documentation**: [Full Documentation](https://jentis.readthedocs.io/)
-- **Community**: [Discussions](https://github.com/jentis/jentis/discussions)
+- **Issues**: [GitHub Issues](https://github.com/devXjitin/jentis-llmkit/issues)
+- **Documentation**: [Full Documentation](https://github.com/devXjitin/jentis-llmkit)
+- **Community**: [Discussions](https://github.com/devXjitin/jentis-llmkit/discussions)
 
 ## Author
 

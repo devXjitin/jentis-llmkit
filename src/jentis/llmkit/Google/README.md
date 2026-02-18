@@ -15,7 +15,7 @@ Google Gemini is a family of advanced AI models developed by [Google](https://ai
 ## Installation
 
 ```bash
-pip install jentis-llmkit
+pip install jentis
 ```
 
 ## Configuration
@@ -253,9 +253,9 @@ This project is licensed under the MIT License - see the [LICENSE](../../../LICE
 
 For issues, questions, or contributions:
 
-- **Issues**: [GitHub Issues](https://github.com/jentis/jentis/issues)
-- **Documentation**: [Full Documentation](https://jentis.readthedocs.io/)
-- **Community**: [Discussions](https://github.com/jentis/jentis/discussions)
+- **Issues**: [GitHub Issues](https://github.com/devXjitin/jentis-llmkit/issues)
+- **Documentation**: [Full Documentation](https://github.com/devXjitin/jentis-llmkit)
+- **Community**: [Discussions](https://github.com/devXjitin/jentis-llmkit/discussions)
 
 ## Author
 
