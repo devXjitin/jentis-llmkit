@@ -28,13 +28,14 @@ A unified Python interface for multiple Large Language Model (LLM) providers. Ac
 
 ```bash
 # Install the base package
-pip install jentis
+pip install jentis-llmkit
 
-# Install provider-specific dependencies
-pip install google-generativeai  # For Google Gemini
-pip install anthropic            # For Anthropic Claude
-pip install openai               # For OpenAI, Grok, Azure
-pip install ollama               # For Ollama (Cloud & Local)
+# Or install with provider-specific dependencies
+pip install jentis-llmkit[google]     # For Google Gemini
+pip install jentis-llmkit[anthropic]  # For Anthropic Claude
+pip install jentis-llmkit[openai]     # For OpenAI, Grok, Azure
+pip install jentis-llmkit[ollama]     # For Ollama (Cloud & Local)
+pip install jentis-llmkit[all]        # Install all providers
 # Vertex AI requires no pip packages — only gcloud CLI
 ```
 

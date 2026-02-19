@@ -13,7 +13,7 @@ xAI's Grok is a state-of-the-art AI model trained on real-time data from the X p
 ## Installation
 
 ```bash
-pip install jentis openai
+pip install jentis-llmkit[openai]
 ```
 
 ## Configuration

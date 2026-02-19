@@ -5,7 +5,7 @@ A unified interface for multiple LLM providers including Google Gemini,
 Anthropic Claude, OpenAI GPT, Grok, Azure OpenAI, and Ollama.
 
 Author: Jentis Developer
-Version: 1.0.1
+Version: 1.0.2
 """
 
 from typing import Optional, Any

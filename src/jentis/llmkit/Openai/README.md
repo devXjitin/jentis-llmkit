@@ -17,7 +17,7 @@ OpenAI provides advanced AI models including GPT-4o and GPT-4o-mini, designed fo
 ## Installation
 
 ```bash
-pip install jentis openai
+pip install jentis-llmkit[openai]
 ```
 
 ## Configuration

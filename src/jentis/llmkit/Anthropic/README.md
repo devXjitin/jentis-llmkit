@@ -15,7 +15,7 @@ Anthropic Claude is a family of highly capable AI models designed for safe, accu
 ## Installation
 
 ```bash
-pip install jentis anthropic
+pip install jentis-llmkit[anthropic]
 ```
 
 ## Configuration

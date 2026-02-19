@@ -26,7 +26,7 @@ Popular models available for local Ollama (download with `ollama pull <model>`):
 3. Install Python package:
 
 ```bash
-pip install jentis openai
+pip install jentis-llmkit[ollama]
 ```
 
 ## Configuration

@@ -15,7 +15,7 @@ Google Gemini is a family of advanced AI models developed by [Google](https://ai
 ## Installation
 
 ```bash
-pip install jentis
+pip install jentis-llmkit[google]
 ```
 
 ## Configuration

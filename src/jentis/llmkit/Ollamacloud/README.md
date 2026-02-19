@@ -21,7 +21,7 @@ Popular models available on Ollama Cloud:
 ## Installation
 
 ```bash
-pip install jentis openai
+pip install jentis-llmkit[ollama]
 ```
 
 ## Configuration

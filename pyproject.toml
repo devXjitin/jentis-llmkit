@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jentis"
-version = "1.0.1"
+name = "jentis-llmkit"
+version = "1.0.2"
 authors = [
   { name="J.E.N.T.I.S Team" },
 ]

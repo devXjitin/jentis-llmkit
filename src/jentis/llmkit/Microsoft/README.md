@@ -18,7 +18,7 @@ Azure OpenAI supports all OpenAI models through custom deployments. Common deplo
 ## Installation
 
 ```bash
-pip install jentis openai
+pip install jentis-llmkit[openai]
 ```
 
 ## Configuration
