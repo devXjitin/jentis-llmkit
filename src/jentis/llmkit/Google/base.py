@@ -7,7 +7,7 @@ Author: Jentis Developer
 Version: 1.0.0
 """
 
-from typing import Optional, Any
+from typing import Optional, Any, Dict
 import os
 import time
 import warnings
@@ -372,7 +372,12 @@ def google_llm(
                     models_attr = getattr(client, "models", None)
                     gen_fn = getattr(models_attr, "generate_content", None) if models_attr else None
                     if callable(gen_fn):
-                        resp = gen_fn(model=model, contents=prompt)
+                        # Try to pass configuration if supported
+                        kwargs: Dict[str, Any] = {}
+                        if generation_config:
+                            kwargs["config"] = generation_config
+                        
+                        resp = gen_fn(model=model, contents=prompt, **kwargs)
                         text = _extract_text_from_response(resp)
                         if text:
                             usage = _extract_usage_from_response(resp)
@@ -393,7 +398,12 @@ def google_llm(
                         
                         gen_fn = getattr(model_obj, "generate_content", None)
                         if callable(gen_fn):
-                            resp = gen_fn(prompt)
+                            # Add timeout support via request_options
+                            kwargs: Dict[str, Any] = {}
+                            if timeout:
+                                kwargs["request_options"] = {"timeout": timeout}
+                            
+                            resp = gen_fn(prompt, **kwargs)
                             text = _extract_text_from_response(resp)
                             if text:
                                 usage = _extract_usage_from_response(resp)
@@ -551,7 +561,12 @@ def google_llm_stream(
                     
                     gen_fn = getattr(model_obj, "generate_content", None)
                     if callable(gen_fn):
-                        response_stream = gen_fn(prompt, stream=True)
+                        # Add timeout support via request_options
+                        kwargs: Dict[str, Any] = {"stream": True}
+                        if timeout:
+                            kwargs["request_options"] = {"timeout": timeout}
+                        
+                        response_stream = gen_fn(prompt, **kwargs)
                         
                         # Iterate through streaming response
                         for chunk in response_stream:  # type: ignore
@@ -568,7 +583,12 @@ def google_llm_stream(
                 models_attr = getattr(client, "models", None)
                 stream_fn = getattr(models_attr, "stream_generate_content", None) if models_attr else None
                 if callable(stream_fn):
-                    response_stream = stream_fn(model=model, contents=prompt, timeout=timeout)
+                    # Try to pass configuration if supported
+                    kwargs: Dict[str, Any] = {"timeout": timeout} if timeout else {}
+                    if generation_config:
+                        kwargs["config"] = generation_config
+                        
+                    response_stream = stream_fn(model=model, contents=prompt, **kwargs)
                     for chunk in response_stream:  # type: ignore
                         text = _extract_text_from_response(chunk)
                         if text:

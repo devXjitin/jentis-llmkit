@@ -7,7 +7,7 @@ Author: Jentis Developer
 Version: 1.0.0
 """
 
-from typing import Optional
+from typing import Optional, Dict, Any
 import os
 import time
 
@@ -120,7 +120,7 @@ def azure_llm(
         )
 
     # Build kwargs
-    kwargs = {}
+    kwargs: Dict[str, Any] = {}
     if temperature is not None:
         kwargs["temperature"] = temperature
     if top_p is not None:
@@ -262,7 +262,7 @@ def azure_llm_stream(
         )
 
     # Build kwargs
-    kwargs = {}
+    kwargs: Dict[str, Any] = {}
     if temperature is not None:
         kwargs["temperature"] = temperature
     if top_p is not None:

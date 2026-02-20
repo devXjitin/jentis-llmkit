@@ -7,7 +7,7 @@ Author: Jentis Developer
 Version: 1.0.0
 """
 
-from typing import Optional
+from typing import Optional, Dict, Any
 import time
 
 
@@ -94,7 +94,7 @@ def ollama_local_llm(
         )
 
     # Build options
-    options = {}
+    options: Dict[str, Any] = {}
     if temperature is not None:
         options["temperature"] = temperature
     if top_p is not None:
@@ -208,7 +208,7 @@ def ollama_local_llm_stream(
         )
 
     # Build options
-    options = {}
+    options: Dict[str, Any] = {}
     if temperature is not None:
         options["temperature"] = temperature
     if top_p is not None:

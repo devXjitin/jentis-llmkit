@@ -7,7 +7,7 @@ Author: Jentis Developer
 Version: 1.0.0
 """
 
-from typing import Optional
+from typing import Optional, Dict, Any
 import os
 import time
 
@@ -112,7 +112,7 @@ def anthropic_llm(
             client = anthropic.Anthropic(api_key=api_key, timeout=timeout)
             
             # Build message parameters
-            create_params: dict = {
+            create_params: Dict[str, Any] = {
                 "model": model,
                 "messages": [{"role": "user", "content": prompt}],
                 "max_tokens": max_tokens,
@@ -233,7 +233,7 @@ def anthropic_llm_stream(
         client = anthropic.Anthropic(api_key=api_key, timeout=timeout)
         
         # Build stream parameters
-        stream_params: dict = {
+        stream_params: Dict[str, Any] = {
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": max_tokens,

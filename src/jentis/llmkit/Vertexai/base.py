@@ -10,7 +10,7 @@ Author: Jentis Developer
 Version: 1.0.0
 """
 
-from typing import Optional, Generator
+from typing import Optional, Generator, List, Dict, Any
 import json
 import os
 import subprocess
@@ -62,7 +62,7 @@ def _find_gcloud() -> Optional[str]:
         return found
 
     # 2. Probe common installation directories
-    candidates: list[str] = []
+    candidates: List[str] = []
 
     if platform.system() == "Windows":
         local_app = os.environ.get("LOCALAPPDATA", "")
@@ -258,7 +258,7 @@ def vertexai_llm(
     url = _build_url(endpoint, project_id, region)
 
     # ── build request body ──────────────────────────────────────────────
-    body: dict = {
+    body: Dict[str, Any] = {
         "model": model,
         "stream": False,
         "messages": [
@@ -417,7 +417,7 @@ def vertexai_llm_stream(
     url = _build_url(endpoint, project_id, region)
 
     # ── build request body ──────────────────────────────────────────────
-    body: dict = {
+    body: Dict[str, Any] = {
         "model": model,
         "stream": True,
         "messages": [

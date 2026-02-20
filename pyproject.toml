@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jentis-llmkit"
-version = "1.0.2"
+version = "1.0.3"
 authors = [
   { name="J.E.N.T.I.S Team" },
 ]
@@ -46,11 +46,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 
-# No required dependencies - all providers are optional
-dependencies = []
-
 [project.optional-dependencies]
-# Individual provider dependencies
 google = ["google-generativeai>=0.3.0"]
 anthropic = ["anthropic>=0.18.0"]
 openai = ["openai>=1.0.0"]

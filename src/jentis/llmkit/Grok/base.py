@@ -7,7 +7,7 @@ Author: Jentis Developer
 Version: 1.0.0
 """
 
-from typing import Optional
+from typing import Optional, Dict, Any
 import os
 import time
 
